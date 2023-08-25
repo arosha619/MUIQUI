@@ -17,8 +17,8 @@ function App() {
       <SideBar>
         <Routes>
           <Route path="/" element={<Dashboard />} />
-          <Route path="/users" element={<UserList />} />
-          <Route path="/messages" element={<Messages />} />
+          <Route path="/user-list" element={<UserList />} />
+          <Route path="/my-buckets" element={<Messages />} />
           <Route path="/analytics" element={<Analytics />} />
           <Route path="/file-manager" element={<FileManager />} />
           <Route path="/order" element={<Order />} />

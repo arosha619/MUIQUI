@@ -11,79 +11,75 @@ import SidebarMenu from "./SidebarMenu";
 const routes = [
   {
     path: "/",
-    name: "Dashboard",
+    name: "Home",
     icon: <FaHome />,
   },
   {
-    path: "/users",
-    name: "Users",
+    path: "/user-list",
+    name: "User List",
     icon: <FaUser />,
   },
   {
-    path: "/messages",
-    name: "Messages",
+    path: "/my-buckets",
+    name: "My Buckets",
     icon: <MdMessage />,
   },
-  {
-    path: "/analytics",
-    name: "Analytics",
-    icon: <BiAnalyse />,
-  },
-  {
-    path: "/file-manager",
-    name: "File Manager",
-    icon: <AiTwotoneFileExclamation />,
-    subRoutes: [
-      {
-        path: "/settings/profile",
-        name: "Profile ",
-        icon: <FaUser />,
-      },
-      {
-        path: "/settings/2fa",
-        name: "2FA",
-        icon: <FaLock />,
-      },
-      {
-        path: "/settings/billing",
-        name: "Billing",
-        icon: <FaMoneyBill />,
-      },
-    ],
-  },
-  {
-    path: "/order",
-    name: "Order",
-    icon: <BsCartCheck />,
-  },
+ 
+  // {
+  //   path: "/file-manager",
+  //   name: "File Manager",
+  //   icon: <AiTwotoneFileExclamation />,
+  //   subRoutes: [
+  //     {
+  //       path: "/settings/profile",
+  //       name: "Profile ",
+  //       icon: <FaUser />,
+  //     },
+  //     {
+  //       path: "/settings/2fa",
+  //       name: "2FA",
+  //       icon: <FaLock />,
+  //     },
+  //     {
+  //       path: "/settings/billing",
+  //       name: "Billing",
+  //       icon: <FaMoneyBill />,
+  //     },
+  //   ],
+  // },
   {
     path: "/settings",
     name: "Settings",
     icon: <BiCog />,
-    exact: true,
-    subRoutes: [
-      {
-        path: "/settings/profile",
-        name: "Profile ",
-        icon: <FaUser />,
-      },
-      {
-        path: "/settings/2fa",
-        name: "2FA",
-        icon: <FaLock />,
-      },
-      {
-        path: "/settings/billing",
-        name: "Billing",
-        icon: <FaMoneyBill />,
-      },
-    ],
   },
-  {
-    path: "/saved",
-    name: "Saved",
-    icon: <AiFillHeart />,
-  },
+  // {
+  //   path: "/settings",
+  //   name: "Settings",
+  //   icon: <BiCog />,
+  //   exact: true,
+  //   subRoutes: [
+  //     {
+  //       path: "/settings/profile",
+  //       name: "Profile ",
+  //       icon: <FaUser />,
+  //     },
+  //     {
+  //       path: "/settings/2fa",
+  //       name: "2FA",
+  //       icon: <FaLock />,
+  //     },
+  //     {
+  //       path: "/settings/billing",
+  //       name: "Billing",
+  //       icon: <FaMoneyBill />,
+  //     },
+  //   ],
+  // },
+  // {
+  //   path: "/saved",
+  //   name: "Saved",
+  //   icon: <AiFillHeart />,
+  // },
 ];
 
 const SideBar = ({ children }) => {
