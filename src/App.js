@@ -11,6 +11,7 @@ import Order from "./pages/Order";
 import Saved from "./pages/Saved";
 import Setting from "./pages/Setting";
 import UserList from "./components/UserList/UserList";
+import MyBucket from "./components/MyBucket/MyBucket";
 function App() {
   return (
     <Router>
@@ -18,7 +19,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Dashboard />} />
           <Route path="/user-list" element={<UserList />} />
-          <Route path="/my-buckets" element={<Messages />} />
+          <Route path="/my-buckets" element={<MyBucket />} />
           <Route path="/analytics" element={<Analytics />} />
           <Route path="/file-manager" element={<FileManager />} />
           <Route path="/order" element={<Order />} />
