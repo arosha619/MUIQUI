@@ -17,7 +17,7 @@ function App() {
     <Router>
       <SideBar>
         <Routes>
-          <Route path="/" element={<Dashboard />} />
+          <Route path="/home" element={<Dashboard />} />
           <Route path="/user-list" element={<UserList />} />
           <Route path="/my-buckets" element={<MyBucket />} />
           <Route path="/analytics" element={<Analytics />} />
