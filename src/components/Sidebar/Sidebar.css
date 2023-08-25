@@ -1,6 +1,11 @@
 /* Sidebar */
 .sidebar {
-    background: rgb(0, 7, 61);
+  background: linear-gradient(
+    180deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(0, 0, 5, 1) 60%,
+    rgba(131, 138, 5, 1) 100%
+  );
     color: white;
     height: 100vh;
     overflow-y: auto;
@@ -60,7 +65,7 @@
   }
   .active {
     border-right: 4px solid white;
-    background: rgb(45, 51, 89);
+    background: rgba(131, 138, 5, 1);
   }
   .link_text {
     white-space: nowrap;
