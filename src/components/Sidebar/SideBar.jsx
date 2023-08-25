@@ -145,7 +145,7 @@ const SideBar = ({ children }) => {
                   exit="hidden"
                   className="logo"
                 >
-                  DoSomeCoding
+                MICQUI
                 </motion.h1>
               )}
             </AnimatePresence>
