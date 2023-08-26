@@ -77,24 +77,50 @@
     color: white;
     border: 2px solid transparent;
   }
-  
+  .signup_button{
+    display: block;
+    margin: 3rem auto 1rem auto;
+    width: 55%;
+    padding: 0.75rem 1rem;
+    border-radius: 25px;
+    outline: 0;
+    font-size: 1rem;
+    font-family: inherit;
+    cursor: pointer;
+    background-color: #cde020;
+    color: white;
+    border: 2px solid transparent;
+  }
+  .signup_button:hover{
+    border: 2px solid #4e65f7;
+    background-color: #000;
+  }
   .login_button:hover {
     border: 2px solid #4e65f7;
     background-color: #000;
   }
   
   .link_container {
-    display: flex;
+    display: grid;
     justify-content: center;
   }
   
-  .small {
+  .small  {
     color: rgb(218, 218, 218);
     text-align: center;
     font-size: 0.85rem;
     text-decoration: underline;
     margin-bottom: 5rem;
     cursor: pointer;
+  }
+  .signup{
+    color: rgb(218, 218, 218);
+    text-align: center !important;
+    font-size: 0.85rem;
+    text-decoration: underline;
+    margin-bottom: 1rem;
+    cursor: pointer;
+    
   }
   
   .icons {
