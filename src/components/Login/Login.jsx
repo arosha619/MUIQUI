@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import "./Login.css";
-import logo from "../../Assets/micqui_logo.jpg"
+import logo from "../../Assets/micqui_logo.jpg";
 import { database } from "../../Data/Database";
 import { useNavigate } from "react-router-dom";
-
+import {FaUserAlt} from "react-icons/fa";
 
 const Login = ({ setAuthenticated }) => {
   const [username, setUsername] = useState("");
@@ -43,18 +43,17 @@ const Login = ({ setAuthenticated }) => {
         setErrorMessages({ name: "password", message: errors.password });
       } else {
         // Correct password, log in user
-        console.log("hi moda arosha")
+        console.log("hi moda arosha");
         setErrorMessages({});
         setAuthenticated(true);
-        console.log("hi lassana nirasha")
-        navigate("/home"); 
+        console.log("hi lassana nirasha");
+        navigate("/home");
       }
     } else {
       // Username doens't exist in the database
       setErrorMessages({ name: "username", message: errors.username });
     }
   };
-
 
   // Render error messages
   const renderErrorMsg = (name) =>
@@ -63,42 +62,41 @@ const Login = ({ setAuthenticated }) => {
     );
 
   return (
- <div className="Outercontainer">
-    <div className="Container">
-    <img className="logo" src={logo} alt="logo"/>
-      <h1 className="title">Sign In</h1>
-      {/* <p  className="subtitle">
-        Please log in using your username and password!
-      </p> */}
-      <form onSubmit={handleSubmit}>
-        <div className="inputs_container">
-          <input
-            type="text"
-            placeholder="Username"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-          />
-          {renderErrorMsg("username")}
-          {renderErrorMsg("noUsername")}
-          <input
-            type="password"
-            placeholder="Password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-          {renderErrorMsg("password")}
-          {renderErrorMsg("noPassword")}
+    <div className="Outercontainer">
+      <div className="Container">
+        <img className="logo" src={logo} alt="logo" />
+        <h1 className="title">Sign In</h1>
+        <form onSubmit={handleSubmit}>
+          <div className="inputs_container">
+            <input
+              type="text"
+              placeholder="Username"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+            />
+            {renderErrorMsg("username")}
+            {renderErrorMsg("noUsername")}
+            <input
+              type="password"
+              placeholder="Password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+            {renderErrorMsg("password")}
+            {renderErrorMsg("noPassword")}
+          </div>
+          <input type="submit" value="Log In" className="login_button" />
+        </form>
+        <div className="link_container">
+        <a href="/sign-up" className="signup">
+            Do not have an account? Sign Up Here
+          </a>
+          <a href="" className="small">
+            Forgot Password?
+          </a>
         </div>
-        <input type="submit" value="Log In" className="login_button" />
-      </form>
-      <div className="link_container">
-        <a href="" className="small">
-          Forgot Password?
-        </a>
       </div>
-</div>
     </div>
-   
   );
 };
 
