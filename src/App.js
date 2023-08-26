@@ -13,11 +13,12 @@ import Setting from "./pages/Setting";
 import UserList from "./components/UserList/UserList";
 import MyBucket from "./components/MyBucket/MyBucket";
 import Login from "./components/Login/Login"
+import SignUp from "./components/SignUp/SignUp";
 function App() {
   const [authenticated, setAuthenticated] = useState(false);
   return (
     <Router>
-   {/* <Login setAuthenticated={setAuthenticated} /> */}
+    
     {authenticated ? 
        <SideBar>
         <Routes>
@@ -25,11 +26,16 @@ function App() {
           <Route path="/user-list" element={<UserList />} />
           <Route path="/my-buckets" element={<MyBucket />} />
           <Route path="/settings" element={<Setting />} />
+          
 
           
         </Routes>
         </SideBar>
-      :(<Routes><Route path="/" element={<Login setAuthenticated={setAuthenticated}/>} /></Routes>)}
+        
+      :(<Routes>
+      <Route path="/" element={<Login setAuthenticated={setAuthenticated}/>} />
+      <Route path="/sign-up" element={<SignUp/>} />
+      </Routes>)}
     </Router>
   );
 }

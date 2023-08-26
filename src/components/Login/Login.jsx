@@ -90,6 +90,7 @@ const Login = ({ setAuthenticated }) => {
           {renderErrorMsg("noPassword")}
         </div>
         <input type="submit" value="Log In" className="login_button" />
+        <button onClick={navigate("/sign-up")} > Sign Up</button>
       </form>
       <div className="link_container">
         <a href="" className="small">
