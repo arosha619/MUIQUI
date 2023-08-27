@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./SignUp.css";
 import { useNavigate } from "react-router-dom";
 import profile from "../../Assets/profile.png"
+import { createAdmin } from "../../API/axios";
 const SignUp = () => {
   const [username, setUsername] = useState("");
   const [email, setemailname] = useState("");
@@ -9,6 +10,7 @@ const SignUp = () => {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [errorMessages, setErrorMessages] = useState({});
   const [selectedImage, setSelectedImage] = useState(null);
+
   const navigate = useNavigate();
 
   const errors = {
@@ -24,6 +26,30 @@ const SignUp = () => {
   const isValidEmail = (email) => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return emailRegex.test(email);
+  };
+
+  const sendAdminData = async () => {
+    console.log("done");
+   
+    try {
+      const formData = new FormData();
+      formData.append("admin_name", username);
+      formData.append("email", email);
+      formData.append("profile_pic", selectedImage);
+      formData.append("password", confirmPassword);
+
+      await createAdmin(formData);
+      console.log(username );
+      console.log(email );
+      console.log(selectedImage );
+      console.log(confirmPassword );
+      console.log(formData);
+      alert('successfull')
+   
+    } catch (err) {
+      alert("Error please try again!");
+     
+    }
   };
 
   const handleSubmit = (e) => {
@@ -52,7 +78,9 @@ const SignUp = () => {
       });
     } else {
       setErrorMessages("");
+      sendAdminData();
     }
+
   };
 
   // Render error messages
