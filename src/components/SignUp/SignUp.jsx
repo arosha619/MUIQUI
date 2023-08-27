@@ -38,7 +38,7 @@ const SignUp = () => {
       formData.append("profile_pic", selectedImage);
       formData.append("password", confirmPassword);
 
-      await createAdmin(formData);
+      var response = await createAdmin(formData);
       console.log(username );
       console.log(email );
       console.log(selectedImage );
@@ -51,6 +51,8 @@ const SignUp = () => {
      
     }
   };
+
+  
 
   const handleSubmit = (e) => {
     e.preventDefault();
