@@ -43,10 +43,10 @@ const Login = ({ setAuthenticated }) => {
         setErrorMessages({ name: "password", message: errors.password });
       } else {
         // Correct password, log in user
-        console.log("hi moda arosha");
+      
         setErrorMessages({});
         setAuthenticated(true);
-        console.log("hi lassana nirasha");
+      
         navigate("/home");
       }
     } else {
