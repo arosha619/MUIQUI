@@ -45,6 +45,56 @@ const data = [
     status: "Active",
     selected: false,
   },
+  {
+    id: 1,
+    image: pic,
+    name: "John Doe",
+    email: "john@example.com",
+    phone: "123-456-7890",
+    position: "Developer",
+    status: "Active",
+    selected: false,
+  },
+  {
+    id: 1,
+    image: pic,
+    name: "John Doe",
+    email: "john@example.com",
+    phone: "123-456-7890",
+    position: "Developer",
+    status: "Active",
+    selected: false,
+  },
+  {
+    id: 1,
+    image: pic,
+    name: "John Doe",
+    email: "john@example.com",
+    phone: "123-456-7890",
+    position: "Developer",
+    status: "Active",
+    selected: false,
+  },
+  {
+    id: 1,
+    image: pic,
+    name: "John Doe",
+    email: "john@example.com",
+    phone: "123-456-7890",
+    position: "Developer",
+    status: "Active",
+    selected: false,
+  },
+  {
+    id: 1,
+    image: pic,
+    name: "John Doe",
+    email: "john@example.com",
+    phone: "123-456-7890",
+    position: "Developer",
+    status: "Active",
+    selected: false,
+  },
 ];
 
 const UserList = () => {
@@ -91,7 +141,7 @@ const UserList = () => {
           onChange={(e) => handleSearch(e.target.value)}
         />
       </form>
-      <div className="table-container">
+      <div className="table-container" >
         <table className="custom-table">
           <thead>
             <tr>
@@ -111,7 +161,9 @@ const UserList = () => {
               <th>Status</th>
             </tr>
           </thead>
-          <tbody>
+         
+          <tbody >
+          
             {filteredData.map((item, index) => (
               <tr key={index}>
                 <td>
@@ -131,7 +183,9 @@ const UserList = () => {
                 <td>{item.status}</td>
               </tr>
             ))}
+            
           </tbody>
+         
         </table>
       </div>
     </div>

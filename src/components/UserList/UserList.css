@@ -4,8 +4,10 @@
     width: 85vw;
   }
   .table-container {
-    max-width: 150%;
+    min-width: 20vw;
     overflow-x: auto;
+    overflow-y: auto;
+    max-height: 30vw;
   }
   
   .custom-table {
