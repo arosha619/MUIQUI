@@ -5,7 +5,7 @@ import { database } from "../../Data/Database";
 import { useNavigate } from "react-router-dom";
 import {FaUserAlt} from "react-icons/fa";
 
-const Login = ({ setAuthenticated }) => {
+const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessages, setErrorMessages] = useState({});
@@ -45,9 +45,11 @@ const Login = ({ setAuthenticated }) => {
         // Correct password, log in user
       
         setErrorMessages({});
-        setAuthenticated(true);
+        // setAuthenticated(true);
+
+        localStorage.setItem('isAuthenticated', true);
       
-        navigate("/home");
+        navigate("/user-list");
       }
     } else {
       // Username doens't exist in the database

@@ -4,54 +4,22 @@ import pic from "../../Assets/person_one.jpg";
 import pic2 from "../../Assets/person_two.jpg";
 import logo from "../../Assets/micqui_logo.jpg";
 import {getAllUsers} from "../../API/axios"
+import { useNavigate } from "react-router-dom";
+import SideBar from "../Sidebar/SideBar";
 
-// const data = [
-//  { id: 1,
-//   image: pic,
-//   name: "John Doe",
-//   email: "john@example.com",
-//   phone: "123-456-7890",
-//   position: "Developer",
-//   status: "Active",
-//   selected: false,
-// },
-// {
-//   id: 2,
-//   image:pic2,
-//   name: "Jane Smith",
-//   email: "jane@example.com",
-//   phone: "987-654-3210",
-//   position: "Designer",
-//   status: "Inactive",
-//   selected: false,
-// },
-// {
-//   id: 1,
-//   image: pic,
-//   name: "amal",
-//   email: "amal@example.com",
-//   phone: "123-456-7890",
-//   position: "Developer",
-//   status: "Active",
-//   selected: false,
-// },
-// {
-//   id: 1,
-//   image: pic,
-//   name: "John Doe",
-//   email: "john@example.com",
-//   phone: "123-456-7890",
-//   position: "Developer",
-//   status: "Active",
-//   selected: false,
-// },
-  
-// ];
 
 const UserList = () => {
   const [selectAll, setSelectAll] = useState(false);
   const [filteredData, setFilteredData] = useState([]);
   const [userData, setUserData] = useState([]);
+  const navigate = useNavigate();
+
+  var isAuthenticated = localStorage.getItem("isAuthenticated");
+
+  if (!isAuthenticated) {
+    alert("Need to login first");
+    navigate("/");
+  }
 
   useEffect(() => {
     const fetchUsers = async () => {
@@ -94,7 +62,14 @@ const UserList = () => {
   };
 
   return (
-    <div className="user-list-container">
+    <>
+     <div className="d-flex flex-row">
+    <div className="col-2">
+      <SideBar/>
+    </div>
+    
+    <div className="col-10">
+    <div className="col-11 user-list-container">
       <header className="page-header">
         <img src={logo} alt="Logo" className="logo" />
         <h2> MICQUI</h2>
@@ -156,6 +131,10 @@ const UserList = () => {
         </table>
       </div>
     </div>
+    </div>
+  
+     </div>
+    </>
   );
 };
 
