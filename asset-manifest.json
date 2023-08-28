@@ -1,0 +1,18 @@
+{
+  "files": {
+    "main.css": "/MUIQUI/static/css/main.da3b0567.css",
+    "main.js": "/MUIQUI/static/js/main.3e63fef8.js",
+    "static/js/787.c1c2415d.chunk.js": "/MUIQUI/static/js/787.c1c2415d.chunk.js",
+    "static/media/micqui_logo.jpg": "/MUIQUI/static/media/micqui_logo.7a74248b9b4a3930a646.jpg",
+    "static/media/person_two.jpg": "/MUIQUI/static/media/person_two.348b2fcc3bf8c629eea7.jpg",
+    "static/media/person_one.jpg": "/MUIQUI/static/media/person_one.cff9fc4c871ef770de92.jpg",
+    "index.html": "/MUIQUI/index.html",
+    "main.da3b0567.css.map": "/MUIQUI/static/css/main.da3b0567.css.map",
+    "main.3e63fef8.js.map": "/MUIQUI/static/js/main.3e63fef8.js.map",
+    "787.c1c2415d.chunk.js.map": "/MUIQUI/static/js/787.c1c2415d.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.da3b0567.css",
+    "static/js/main.3e63fef8.js"
+  ]
+}
