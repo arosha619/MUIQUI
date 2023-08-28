@@ -5,7 +5,7 @@ import { database } from "../../Data/Database";
 import { useNavigate } from "react-router-dom";
 
 
-const Login = ({ setAuthenticated }) => {
+const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessages, setErrorMessages] = useState({});
@@ -43,10 +43,9 @@ const Login = ({ setAuthenticated }) => {
         setErrorMessages({ name: "password", message: errors.password });
       } else {
         // Correct password, log in user
-        console.log("hi moda arosha")
+        console.log("")
         setErrorMessages({});
-        setAuthenticated(true);
-        console.log("hi lassana nirasha")
+        console.log("")
         navigate("/home"); 
       }
     } else {
