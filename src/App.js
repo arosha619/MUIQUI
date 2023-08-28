@@ -12,24 +12,16 @@ function App() {
   const [authenticated, setAuthenticated] = useState(false);
   return (
     <Router>
-    
-    {authenticated ? 
-       <SideBar>
+     
+     
         <Routes>
           <Route path="/home" element={<Dashboard />} />
           <Route path="/user-list" element={<UserList />} />
           <Route path="/my-buckets" element={<MyBucket />} />
           <Route path="/settings" element={<Setting />} />
-          
-
-          
         </Routes>
-        </SideBar>
         
-      :(<Routes>
-      <Route path="/" element={<Login setAuthenticated={setAuthenticated}/>} />
-      <Route path="/sign-up" element={<SignUp/>} />
-      </Routes>)}
+        
     </Router>
   );
 }
