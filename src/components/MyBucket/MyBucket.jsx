@@ -1,14 +1,37 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import "./MyBucket.css";
 import SideBar from "../Sidebar/SideBar";
 import BucketContains from "../MybucketComponents/BucketContains";
 import { IoIosAddCircle } from "react-icons/io";
+import { useNavigate } from "react-router-dom";
 
-function MyBucket() {
+const MyBucket = () => {
   
-  const bucketData = [1,2,3,4,5];
-  const [state, setState] = useState([]);
+  const navigate = useNavigate();
+  var isAuthenticated = localStorage.getItem("isAuthenticated");
 
+
+  useEffect(() => {
+
+    var isAuthenticated = localStorage.getItem("isAuthenticated");
+
+  if (!isAuthenticated || isAuthenticated == null) {
+    alert("Need to login first");
+    console.log("not authanticated");
+    navigate("/");
+  }
+
+  }, [])
+
+  
+
+
+  const bucketData = [1,2,3,4,5];
+
+
+  if (!isAuthenticated || isAuthenticated === "false") {
+    return null;
+  }
      
   return (
     <div className="d-flex">
@@ -81,7 +104,7 @@ function MyBucket() {
           <div className="entire">
           {
             bucketData.map((item,index) => (
-              <BucketContains  state = {state} setState={setState} />
+              <BucketContains />
             ))
           }
 

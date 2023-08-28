@@ -16,10 +16,18 @@ const UserList = () => {
 
   var isAuthenticated = localStorage.getItem("isAuthenticated");
 
-  if (!isAuthenticated) {
+  useEffect(() => {
+
+    var isAuthenticated = localStorage.getItem("isAuthenticated");
+
+  if (!isAuthenticated || isAuthenticated == null) {
     alert("Need to login first");
     navigate("/");
   }
+
+  }, [])
+
+
 
   useEffect(() => {
     const fetchUsers = async () => {
@@ -34,6 +42,10 @@ const UserList = () => {
 
     fetchUsers();
   }, []);
+
+  if (!isAuthenticated || isAuthenticated === "false") {
+    return null; // Stop rendering
+  }
   
 
   const handleSelectAll = () => {

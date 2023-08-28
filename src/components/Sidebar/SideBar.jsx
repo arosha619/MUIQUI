@@ -6,6 +6,7 @@ import { BiCog } from "react-icons/bi";
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import SidebarMenu from "./SidebarMenu";
+import { useNavigate } from "react-router-dom";
 import "./Sidebar.css";
 const routes = [
   {
@@ -32,6 +33,7 @@ const routes = [
 ];
 
 const SideBar = ({ children }) => {
+
   const [isOpen, setIsOpen] = useState(false);
   const toggle = () => setIsOpen(!isOpen);
   const inputAnimation = {
