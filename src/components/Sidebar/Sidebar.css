@@ -16,8 +16,9 @@
     align-items: center;
     justify-content: space-between;
     padding: 15px 10px;
+    
   }
-  .logo {
+  .logo1 {
     font-size: 18px;
     line-height: 0;
   }
@@ -66,6 +67,8 @@
   .active {
     border-right: 4px solid white;
     background: rgba(131, 138, 5, 1);
+    padding-top: 10px;
+    padding-bottom: 10px;
   }
   .link_text {
     white-space: nowrap;
@@ -92,4 +95,10 @@
   .menu_container .link {
     padding-left: 20px;
     border-bottom: #fff 0.5px solid;
+  }
+  .logout{
+    padding-left: 25px;
+    position: absolute;
+    bottom:30px;
+    width: 90px;
   }
