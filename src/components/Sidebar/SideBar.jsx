@@ -1,14 +1,12 @@
 import { NavLink } from "react-router-dom";
-import { FaBars, FaHome, FaLock, FaMoneyBill, FaUser } from "react-icons/fa";
+import { FaBars, FaHome, FaUser } from "react-icons/fa";
 import { MdMessage } from "react-icons/md";
-import { BiAnalyse, BiSearch } from "react-icons/bi";
+import {  BiSearch } from "react-icons/bi";
 import { BiCog } from "react-icons/bi";
-import { AiFillHeart, AiTwotoneFileExclamation } from "react-icons/ai";
-import { BsCartCheck } from "react-icons/bs";
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import SidebarMenu from "./SidebarMenu";
-import "./Sidebar.css"
+import "./Sidebar.css";
 const routes = [
   {
     path: "/home",
@@ -25,62 +23,12 @@ const routes = [
     name: "My Buckets",
     icon: <MdMessage />,
   },
- 
-  // {
-  //   path: "/file-manager",
-  //   name: "File Manager",
-  //   icon: <AiTwotoneFileExclamation />,
-  //   subRoutes: [
-  //     {
-  //       path: "/settings/profile",
-  //       name: "Profile ",
-  //       icon: <FaUser />,
-  //     },
-  //     {
-  //       path: "/settings/2fa",
-  //       name: "2FA",
-  //       icon: <FaLock />,
-  //     },
-  //     {
-  //       path: "/settings/billing",
-  //       name: "Billing",
-  //       icon: <FaMoneyBill />,
-  //     },
-  //   ],
-  // },
+
   {
     path: "/settings",
     name: "Settings",
     icon: <BiCog />,
   },
-  // {
-  //   path: "/settings",
-  //   name: "Settings",
-  //   icon: <BiCog />,
-  //   exact: true,
-  //   subRoutes: [
-  //     {
-  //       path: "/settings/profile",
-  //       name: "Profile ",
-  //       icon: <FaUser />,
-  //     },
-  //     {
-  //       path: "/settings/2fa",
-  //       name: "2FA",
-  //       icon: <FaLock />,
-  //     },
-  //     {
-  //       path: "/settings/billing",
-  //       name: "Billing",
-  //       icon: <FaMoneyBill />,
-  //     },
-  //   ],
-  // },
-  // {
-  //   path: "/saved",
-  //   name: "Saved",
-  //   icon: <AiFillHeart />,
-  // },
 ];
 
 const SideBar = ({ children }) => {
@@ -143,9 +91,9 @@ const SideBar = ({ children }) => {
                   initial="hidden"
                   animate="show"
                   exit="hidden"
-                  className="logo"
+                  className="logo1"
                 >
-                MICQUI
+                  MICQUI
                 </motion.h1>
               )}
             </AnimatePresence>
@@ -209,6 +157,21 @@ const SideBar = ({ children }) => {
               );
             })}
           </section>
+          
+          <AnimatePresence className="logout">
+          
+            {isOpen && (
+              <motion.div
+                variants={showAnimation}
+                initial="hidden"
+                animate="show"
+                exit="hidden"
+                className="logout"
+              >
+                Logout
+              </motion.div>
+            )}
+          </AnimatePresence>
         </motion.div>
 
         <main>{children}</main>
