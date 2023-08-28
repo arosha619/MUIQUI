@@ -1,105 +1,72 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import "./UserList.css";
 import pic from "../../Assets/person_one.jpg";
 import pic2 from "../../Assets/person_two.jpg";
 import logo from "../../Assets/micqui_logo.jpg";
+import {getAllUsers} from "../../API/axios"
 
-const data = [
-  {
-    id: 1,
-    image: pic,
-    name: "John Doe",
-    email: "john@example.com",
-    phone: "123-456-7890",
-    position: "Developer",
-    status: "Active",
-    selected: false,
-  },
-  {
-    id: 2,
-    image:pic2,
-    name: "Jane Smith",
-    email: "jane@example.com",
-    phone: "987-654-3210",
-    position: "Designer",
-    status: "Inactive",
-    selected: false,
-  },
-  {
-    id: 1,
-    image: pic,
-    name: "amal",
-    email: "amal@example.com",
-    phone: "123-456-7890",
-    position: "Developer",
-    status: "Active",
-    selected: false,
-  },
-  {
-    id: 1,
-    image: pic,
-    name: "John Doe",
-    email: "john@example.com",
-    phone: "123-456-7890",
-    position: "Developer",
-    status: "Active",
-    selected: false,
-  },
-  {
-    id: 1,
-    image: pic,
-    name: "John Doe",
-    email: "john@example.com",
-    phone: "123-456-7890",
-    position: "Developer",
-    status: "Active",
-    selected: false,
-  },
-  {
-    id: 1,
-    image: pic,
-    name: "John Doe",
-    email: "john@example.com",
-    phone: "123-456-7890",
-    position: "Developer",
-    status: "Active",
-    selected: false,
-  },
-  {
-    id: 1,
-    image: pic,
-    name: "John Doe",
-    email: "john@example.com",
-    phone: "123-456-7890",
-    position: "Developer",
-    status: "Active",
-    selected: false,
-  },
-  {
-    id: 1,
-    image: pic,
-    name: "John Doe",
-    email: "john@example.com",
-    phone: "123-456-7890",
-    position: "Developer",
-    status: "Active",
-    selected: false,
-  },
-  {
-    id: 1,
-    image: pic,
-    name: "John Doe",
-    email: "john@example.com",
-    phone: "123-456-7890",
-    position: "Developer",
-    status: "Active",
-    selected: false,
-  },
-];
+// const data = [
+//  { id: 1,
+//   image: pic,
+//   name: "John Doe",
+//   email: "john@example.com",
+//   phone: "123-456-7890",
+//   position: "Developer",
+//   status: "Active",
+//   selected: false,
+// },
+// {
+//   id: 2,
+//   image:pic2,
+//   name: "Jane Smith",
+//   email: "jane@example.com",
+//   phone: "987-654-3210",
+//   position: "Designer",
+//   status: "Inactive",
+//   selected: false,
+// },
+// {
+//   id: 1,
+//   image: pic,
+//   name: "amal",
+//   email: "amal@example.com",
+//   phone: "123-456-7890",
+//   position: "Developer",
+//   status: "Active",
+//   selected: false,
+// },
+// {
+//   id: 1,
+//   image: pic,
+//   name: "John Doe",
+//   email: "john@example.com",
+//   phone: "123-456-7890",
+//   position: "Developer",
+//   status: "Active",
+//   selected: false,
+// },
+  
+// ];
 
 const UserList = () => {
   const [selectAll, setSelectAll] = useState(false);
-  const [filteredData, setFilteredData] = useState(data);
+  const [filteredData, setFilteredData] = useState([]);
+  const [userData, setUserData] = useState([]);
+
+  useEffect(() => {
+    const fetchUsers = async () => {
+      try {
+        const usersData = await getAllUsers();
+        setUserData(usersData.data.data);
+        setFilteredData(usersData.data.data);
+      } catch (error) {
+        console.error('Error fetching user data:', error);
+      }
+    };
+
+    fetchUsers();
+  }, []);
+  
 
   const handleSelectAll = () => {
     setSelectAll(!selectAll);
@@ -120,8 +87,8 @@ const UserList = () => {
 
   const handleSearch = (searchTerm) => {
     // Logic to filter data based on searchTerm
-    const filtered = data.filter((item) =>
-      item.name.toLowerCase().includes(searchTerm.toLowerCase())
+    const filtered = userData.filter((item) =>
+      item.full_name.toLowerCase().includes(searchTerm.toLowerCase())
     );
     setFilteredData(filtered);
   };
@@ -133,9 +100,9 @@ const UserList = () => {
         <h2> MICQUI</h2>
         <h1>User List</h1>
       </header>
-      <form class="nosubmit">
+      <form className="nosubmit">
         <input
-          class="nosubmit"
+          className="nosubmit"
           type="search"
           placeholder="Search By Name..."
           onChange={(e) => handleSearch(e.target.value)}
@@ -174,13 +141,13 @@ const UserList = () => {
                   />
                 </td>
                 <td>
-                  <img id="image" src={item.image} alt="image" />
+                  <img id="image" src={item.profile_pic} alt="image" />
                 </td>
-                <td>{item.name}</td>
+                <td>{item.full_name}</td>
                 <td>{item.email}</td>
                 <td>{item.phone}</td>
-                <td>{item.position}</td>
-                <td>{item.status}</td>
+                <td>{item.role}</td>
+                <td>{item.is_verified === 1 ? 'Verified' : 'Not Verified'}</td>
               </tr>
             ))}
             
