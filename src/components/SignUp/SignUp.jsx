@@ -3,6 +3,7 @@ import "./SignUp.css";
 import { useNavigate } from "react-router-dom";
 import profile from "../../Assets/profile.png"
 import { createAdmin } from "../../API/axios";
+
 const SignUp = () => {
   const [username, setUsername] = useState("");
   const [email, setemailname] = useState("");
@@ -15,6 +16,7 @@ const SignUp = () => {
 
   const errors = {
     username: "Invalid username",
+    usernameLength:"User name require more than 6 characters",
     email: "Invalid Email",
     noEmail: "Please enter your Email",
     password: "Invalid password",
@@ -22,6 +24,8 @@ const SignUp = () => {
     noPassword: "Please enter your password",
     invalidEmail: "Invalid email format",
     ComparePassword: "Passwords don't match",
+    PasswordLength:"password should be more than 6 characters"
+
   };
   const isValidEmail = (email) => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -29,7 +33,6 @@ const SignUp = () => {
   };
 
   const sendAdminData = async () => {
-    console.log("done");
    
     try {
       const formData = new FormData();
@@ -44,6 +47,7 @@ const SignUp = () => {
       console.log(selectedImage );
       console.log(confirmPassword );
       console.log(formData);
+      console.log(response);
       alert('successfull')
    
     } catch (err) {
@@ -61,6 +65,10 @@ const SignUp = () => {
       setErrorMessages({ name: "noUsername", message: errors.noUsername });
       return;
     }
+    if (username.length < 6) {
+      setErrorMessages({ name: "usernameLength", message: errors.usernameLength });
+      return;
+    }
     if (!email) {
       setErrorMessages({ name: "noEmail", message: errors.noEmail });
       return;
@@ -70,6 +78,10 @@ const SignUp = () => {
 
     if (!password) {
       setErrorMessages({ name: "noPassword", message: errors.noPassword });
+      return;
+    }
+    if (password.length < 6) {
+      setErrorMessages({ name: "PasswordLength", message: errors.PasswordLength });
       return;
     }
 
@@ -129,6 +141,7 @@ const SignUp = () => {
             />
             {renderErrorMsg("username")}
             {renderErrorMsg("noUsername")}
+            {renderErrorMsg("usernameLength")}
             <input
               type="Email"
               placeholder="Email"
@@ -146,6 +159,7 @@ const SignUp = () => {
             />
             {renderErrorMsg("password")}
             {renderErrorMsg("noPassword")}
+            {renderErrorMsg("PasswordLength")}
             <input
               type="password"
               placeholder="Confirm Password"
